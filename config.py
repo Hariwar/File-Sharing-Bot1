@@ -26,7 +26,7 @@ OWNER_ID = int(os.environ.get("OWNER_ID", "578811855"))
 
 #Port
 PORT = os.environ.get("PORT", "8080")
-
+AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://Hari813143:hari813143@filestore.wmfcowb.mongodb.net/?retryWrites=true&w=majority")
 DB_NAME = os.environ.get("DATABASE_NAME", "idol")
