@@ -14,7 +14,8 @@ from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
 from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
-
+await asyncio.sleep(60)
+await msg.delete()
 
 
 
@@ -83,6 +84,8 @@ async def start_command(client: Client, message: Message):
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
             except:
                 pass
+            await asyncio.sleep(60)
+            await msg.delete()
         return
     else:
         reply_markup = InlineKeyboardMarkup(
@@ -137,8 +140,8 @@ async def not_joined(client: Client, message: Message):
             ]
         )
     except IndexError:
-        pass
-
+       pass
+    
     await message.reply(
         text = FORCE_MSG.format(
                 first = message.from_user.first_name,
